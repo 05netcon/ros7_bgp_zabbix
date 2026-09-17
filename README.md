@@ -6,18 +6,24 @@ Python script to discover and monitor BGP of MikroTik RouterOS 7 based network d
 #### Installation in OS
 > The entire installation process will be demonstrated using the **Ubuntu** operating system.
 
-1. First of all we need to download `ros7_bgp_zabbix.py` script to `externalscripts` folder on **Zabbix server**. The location of the folder depends on `ExternalScripts` option in `/etc/zabbix/zabbix_server.conf` file. The default value is `/usr/lib/zabbix/externalscripts`.
+1. The script uses `librouteros` python package. Thats why first of all we need to upgrade `pip` and install `librouteros` package globally.
+    ```shell
+    sudo python3 -m pip install --upgrade pip
+    sudo python3 -m pip install librouteros
+    ```
+
+2. Then we need to download `ros7_bgp_zabbix.py` script to `externalscripts` folder on **Zabbix server**. The location of the folder depends on `ExternalScripts` option in `/etc/zabbix/zabbix_server.conf` file. The default value is `/usr/lib/zabbix/externalscripts`.
     ```shell
     cd ~
     git clone https://github.com/05netcon/ros7_bgp_zabbix.git
     cd ros7_bgp_zabbix
     sudo cp ros7_bgp_zabbix.py /usr/lib/zabbix/externalscripts
     ```
-2. The script needs to be assigned the execution bit.
+3. The script needs to be assigned the execution bit.
     ```shell
     sudo chmod +x /usr/lib/zabbix/externalscripts/ros7_bgp_zabbix.py
     ```
-3. By default, the **Zabbix server** runs as the `zabbix` user. The permissions for the folder and file need to be changed appropriately.
+4. By default, the **Zabbix server** runs as the `zabbix` user. The permissions for the folder and file need to be changed appropriately.
     ```shell
     sudo chown -R zabbix:zabbix /usr/lib/zabbix/externalscripts
     sudo chmod -R 755 /usr/lib/zabbix/externalscripts
@@ -42,7 +48,7 @@ Python script to discover and monitor BGP of MikroTik RouterOS 7 based network d
 
 9.  Click `Update`.
 
-### Usage in cli
+### CLI usage
 ```
 usage: ros7_bgp_zabbix.py [-h] [-p] command host username password
 
@@ -59,7 +65,7 @@ options:
   -p , --peer   peer name (onle if in status mode)
   ```
 
-### Data format returned when `discovery` parameter is passed:
+### Data format returned when `discover` parameter is passed:
 ```json
 {
     "data": [
