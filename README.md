@@ -42,11 +42,13 @@ Python script to discover and monitor BGP of MikroTik RouterOS 7 based network d
 
 6. Choose **MikroTik RouterOS 7** based network device.
 
-7. To the right of the `Templates` item, click the `Select` button.
+7. In `Macros` tab add `{$USERNAME}` and `{$PASSWORD}` macros with the corresponding values.
 
-8. Choose `RouterOS 7 BGP` template imported earlier.
+8. In `Host` tab to the right of the `Templates` item, click the `Select` button.
 
-9.  Click `Update`.
+9. Choose `RouterOS 7 BGP` template imported earlier.
+
+10. Click `Update`.
 
 ### CLI usage
 ```
@@ -65,7 +67,7 @@ options:
   -p , --peer   peer name (onle if in status mode)
   ```
 
-### Data format returned when `discover` parameter is passed:
+### Data format returned when `discover` parameter is passed
 ```json
 {
     "data": [

@@ -18,7 +18,7 @@ parser.add_argument(
     '-p', '--peer', 
     metavar = '', 
     type = str, 
-    help = 'peer name (onle if in status mode)'
+    help = 'peer name (only if in status mode)'
 )
 args = parser.parse_args()
 
