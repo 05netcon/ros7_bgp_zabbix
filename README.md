@@ -64,7 +64,7 @@ positional arguments:
 
 options:
   -h, --help    show this help message and exit
-  -p , --peer   peer name (onle if in status mode)
+  -p , --peer   peer name (only if in status mode)
   ```
 
 ### Data format returned when `discover` parameter is passed
