@@ -1,10 +1,48 @@
 # Monitoring MikroTik RouterOS 7 BGP in Zabbix
 
-Python script to discover and to monitor BGP of MikroTik RouterOS 7 based network devices in Zabbix.
+Python script to discover and monitor BGP of MikroTik RouterOS 7 based network devices in Zabbix.
 
 ### Installation
+#### Installation in OS
+> The entire installation process will be demonstrated using the **Ubuntu** operating system.
 
-### Usage
+1. First of all we need to download `ros7_bgp_zabbix.py` script to `externalscripts` folder on **Zabbix server**. The location of the folder depends on `ExternalScripts` option in `/etc/zabbix/zabbix_server.conf` file. The default value is `/usr/lib/zabbix/externalscripts`.
+    ```shell
+    cd ~
+    git clone https://github.com/05netcon/ros7_bgp_zabbix.git
+    cd ros7_bgp_zabbix
+    sudo cp ros7_bgp_zabbix.py /usr/lib/zabbix/externalscripts
+    ```
+2. The script needs to be assigned the execution bit.
+    ```shell
+    sudo chmod +x /usr/lib/zabbix/externalscripts/ros7_bgp_zabbix.py
+    ```
+3. By default, the **Zabbix server** runs as the `zabbix` user. The permissions for the folder and file need to be changed appropriately.
+    ```shell
+    sudo chown -R zabbix:zabbix /usr/lib/zabbix/externalscripts
+    sudo chmod -R 755 /usr/lib/zabbix/externalscripts
+    ```
+#### Installation in Zabbix
+1. In the leftside menu go to `Data Collection -> Templates`.
+
+2. Click the `Import` button in the top right corner.
+
+3. Click `Browse` and choose `ros7_bgp_zabbix.xml` template file from `templates` folder of the project you cloned from **GitHub** earlier.
+   > There are three files with different extensions in the folder. You can choose any of them.
+
+4. Click `Import` button.
+
+5. In the leftside menu go to `Data Collection -> Hosts`.
+
+6. Choose **MikroTik RouterOS 7** based network device.
+
+7. To the right of the `Templates` item, click the `Select` button.
+
+8. Choose `RouterOS 7 BGP` template imported earlier.
+
+9.  Click `Update`.
+
+### Usage in cli
 ```
 usage: ros7_bgp_zabbix.py [-h] [-p] command host username password
 
