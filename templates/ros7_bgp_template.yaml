@@ -28,9 +28,10 @@ zabbix_export:
                   description: 'BGP session is down'
           graph_prototypes:
             - uuid: 3e959cd9e33e43f882c4a490503aea4a
-              name: '{#BGPPEER} graph'
+              name: '{#BGPPEER} BGP peer graph'
               graph_items:
-                - color: 1A7C11
+                - drawtype: FILLED_REGION
+                  color: 1A7C11
                   calc_fnc: ALL
                   item:
                     host: 'RouterOS 7 BGP'

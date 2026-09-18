@@ -44,9 +44,10 @@
                     <graph_prototypes>
                         <graph_prototype>
                             <uuid>3e959cd9e33e43f882c4a490503aea4a</uuid>
-                            <name>{#BGPPEER} graph</name>
+                            <name>{#BGPPEER} BGP peer graph</name>
                             <graph_items>
                                 <graph_item>
+                                    <drawtype>FILLED_REGION</drawtype>
                                     <color>1A7C11</color>
                                     <calc_fnc>ALL</calc_fnc>
                                     <item>
